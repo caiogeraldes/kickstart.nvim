@@ -43,6 +43,10 @@ return {
     vim.keymap.set('n', '<leader>sge', '<cmd>setlocal spell spelllang=en,grc<cr>', { desc = 'English + Greek' })
     vim.keymap.set('n', '<leader>sq', '<cmd>setlocal nospell<cr>', { desc = 'Disable' })
 
+    -- Neo-tree
+    vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>', { desc = 'Neotree toggle' })
+    vim.keymap.set('n', '<leader>o', '<cmd>Neotree action=show toggle<cr>', { desc = 'Neotree show' })
+
     if ft == 'tex' then
       require('which-key').register {
         ['<leader>T'] = { name = ' [T]ex', _ = 'which_key_ignore' },
