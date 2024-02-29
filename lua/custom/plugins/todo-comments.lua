@@ -5,7 +5,6 @@ return {
     signs = true, -- show icons in the signs column
     sign_priority = 8, -- sign priority
     -- keywords recognized as todo comments
-    -- FIX: Make it work with gruvbox-material
     keywords = {
       FIX = {
         icon = ' ', -- icon used for the sign, and in search results

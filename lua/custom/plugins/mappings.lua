@@ -71,8 +71,6 @@ return {
       vim.keymap.set('n', '<leader>rC', '<cmd>:!cargo clippy<cr>', { desc = 'Clippy' })
       vim.keymap.set('n', '<leader>rt', '<cmd>:!cargo test<cr>', { desc = 'Test' })
       vim.keymap.set('n', '<leader>rr', '<cmd>:!cargo run<cr>', { desc = 'Run' })
-
-      -- TODO: Criar atalhos para o nvim-r
     end
   end,
 }
