@@ -1,0 +1,50 @@
+\documentclass[a4paper,12pt,article]{memoir}
+
+\usepackage{fontspec}
+\usepackage[english,main=brazil]{babel}
+
+\setmainfont[BoldFont={Brill Bold},ItalicFont={Brill Italic}]{Brill}
+\setmonofont[Scale=0.75]{Noto Mono}
+
+\usepackage{linguex}
+\usepackage{tikz} %for all basic options
+\usepackage{tikz-qtree} %for simple tree syntax
+\usepgflibrary{arrows} %for arrow endings
+\usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+\usepackage{tikz-qtree}
+\usepackage{tree-dvips}
+\usepackage{xargs}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[normalem]{ulem}
+
+% Pacotes de diagramação
+\usepackage{paralist}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyphenat}
+
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+\author{{{ author }}}
+\title{Lorem Ipsum}
+\date{\today}
+
+\usepackage[backend=biber,
+            style=abnt,
+            pretty,
+            repeatfields,
+            noslsn,
+            natbib,
+            extrayear,
+            ]{biblatex}
+\addbibresource{~/proj/biblio/biblio.bib}
+
+
+\begin{document}
+
+\end{document}
