@@ -3,21 +3,7 @@ return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
   dependencies = {
-    -- Snippet Engine & its associated nvim-cmp source
-    {
-      'L3MON4D3/LuaSnip',
-      build = (function()
-        -- Build Step is needed for regex support in snippets
-        -- This step is not supported in many windows environments
-        -- Remove the below condition to re-enable on windows
-        if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-          return
-        end
-        return 'make install_jsregexp'
-      end)(),
-    },
     'saadparwaiz1/cmp_luasnip',
-
     -- Adds other completion capabilities.
     --  nvim-cmp does not ship with all sources by default. They are split
     --  into multiple repos for maintenance purposes.
@@ -28,7 +14,7 @@ return {
     --    you can use this plugin to help you. It even has snippets
     --    for various frameworks/libraries/etc. but you will have to
     --    set up the ones that are useful for you.
-    -- 'rafamadriz/friendly-snippets',
+    'rafamadriz/friendly-snippets',
     'hrsh7th/cmp-calc',
     'hrsh7th/cmp-emoji',
     'jc-doyle/cmp-pandoc-references',
@@ -92,6 +78,7 @@ return {
       sources = {
         { name = 'nvim_lsp', priority = 1000 },
         { name = 'luasnip', priority = 750 },
+        { name = 'friendly-snippets', priority = 730 },
         { name = 'nerdfont', priority = 725 },
         { name = 'pandoc_references', priority = 725 },
         { name = 'latex_symbols', priority = 700 },

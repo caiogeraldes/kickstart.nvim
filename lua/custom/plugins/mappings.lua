@@ -47,6 +47,18 @@ return {
     vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>', { desc = 'Neotree toggle' })
     vim.keymap.set('n', '<leader>o', '<cmd>Neotree action=show toggle<cr>', { desc = 'Neotree show' })
 
+    -- LuaSnips
+
+    vim.cmd [[
+    " Use Tab to expand and jump through snippets
+    imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+    smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
+
+    " Use Shift-Tab to jump backwards through snippets
+    imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+    smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+    ]]
+
     if ft == 'tex' then
       require('which-key').register {
         ['<leader>T'] = { name = ' [T]ex', _ = 'which_key_ignore' },

@@ -388,5 +388,14 @@ vim.keymap.set('n', '<leader>c', function()
   require('custom.utils').close()
 end, { desc = 'Close buffer' })
 
+-- LuaSnip startup
+require('luasnip').config.set_config {
+  enable_autosnippets = true,
+  store_selection_keys = '<Tab>',
+}
+---@diagnostic disable-next-line: assign-type-mismatch
+require('luasnip.loaders.from_lua').lazy_load { paths = '~/.config/nvim/snippets/' }
+require('luasnip.loaders.from_vscode').lazy_load()
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
