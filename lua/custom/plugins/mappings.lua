@@ -35,6 +35,7 @@ return {
     -- Save and close
     vim.keymap.set('n', '<leader>q', '<cmd>confirm quit<cr>', { desc = '[Q]uit' })
     vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { desc = '[W]rite' })
+    vim.keymap.set('n', '<leader>c', '<cmd>bd<cr>', { desc = '[C]lose Buffer' })
 
     -- Spelling
     vim.keymap.set('n', '<leader>sp', '<cmd>setlocal spell spelllang=pt<cr>', { desc = 'Portuguese' })

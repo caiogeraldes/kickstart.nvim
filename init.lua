@@ -403,10 +403,6 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   end,
 })
 
-vim.keymap.set('n', '<leader>c', function()
-  require('custom.utils').close()
-end, { desc = 'Close buffer' })
-
 -- LuaSnip startup
 require('luasnip').config.set_config {
   enable_autosnippets = true,
