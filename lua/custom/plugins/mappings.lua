@@ -12,6 +12,10 @@ return {
       ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
       ['<leader>s'] = { name = ' [S]pelling' },
       ['<leader>O'] = { desc = ' [O]rgmode' },
+      ['<leader>g'] = { desc = ' [G]it' },
+      ['<leader>gh'] = { desc = '󰘤 [H]unk' },
+      ['<leader>gb'] = { desc = ' [B]uffer' },
+      ['<leader>gt'] = { desc = ' [T]oggle' },
     }
 
     -- Kill search highlights
@@ -48,8 +52,9 @@ return {
     vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>', { desc = 'Neotree toggle' })
     vim.keymap.set('n', '<leader>o', '<cmd>Neotree action=show toggle<cr>', { desc = 'Neotree show' })
 
-    -- LuaSnips
+    -- Gitsigns: see ./gitsigns.lua
 
+    -- LuaSnips
     vim.cmd [[
     " Use Tab to expand and jump through snippets
     imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
@@ -65,9 +70,9 @@ return {
         ['<leader>T'] = { name = ' [T]ex', _ = 'which_key_ignore' },
       }
 
-      vim.keymap.set('n', '<leader>Tv', '<cmd>VimtexView<cr>', { desc = 'View PDF' })
-      vim.keymap.set('n', '<leader>TT', '<cmd>VimtexTocToggle<cr>', { desc = '[T]OC Toggle' })
-      vim.keymap.set('n', '<leader>TC', '<cmd>VimtexClean<cr>', { desc = '[C]lean' })
+      vim.keymap.set('n', '<leader>Tv', '<cmd>VimtexView<cr>', { desc = '  [V]iew PDF' })
+      vim.keymap.set('n', '<leader>TT', '<cmd>VimtexTocToggle<cr>', { desc = '󰠶 [T]OC Toggle' })
+      vim.keymap.set('n', '<leader>TC', '<cmd>VimtexClean<cr>', { desc = '󰃢 [C]lean' })
     elseif ft == 'r' then
       require('which-key').register {
         ['<leader>r'] = { name = ' [R]lang', _ = 'which_key_ignore' },
