@@ -4,6 +4,7 @@ return {
   config = function()
     require('colorizer').setup {
       'config',
+      'lua',
       'ini',
       'yaml',
       'toml',

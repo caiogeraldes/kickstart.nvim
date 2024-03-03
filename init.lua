@@ -259,7 +259,7 @@ require('lazy').setup {
         texlab = {
           settings = {
             texlab = {
-              build = { onSave = true, executable = 'lualatex' },
+              build = { onSave = true, executable = 'lualatex', forwardSearchAfter = true },
               diagnostics = {
                 ignoredPatterns = {
                   'Overfull',
@@ -350,6 +350,7 @@ require('lazy').setup {
       },
       formatters_by_ft = {
         lua = { 'stylua' },
+        tex = { 'texlab' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -360,24 +361,6 @@ require('lazy').setup {
     },
   },
 
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-    'sainnhe/gruvbox-material',
-    -- 'folke/tokyonight.nvim',
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      -- Load the colorscheme here
-      -- vim.cmd.colorscheme 'tokyonight'
-      vim.cmd.colorscheme 'gruvbox-material'
-
-      -- You can configure highlights by doing something like
-      vim.cmd.hi 'Comment gui=none'
-    end,
-  },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -413,7 +396,11 @@ require('lazy').setup {
 
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = { '*.tex' },
-  command = 'set spell spelllang=pt,en,grc,de',
+  callback = function()
+    vim.cmd 'set spell spelllang=pt,en,grc,de'
+    vim.opt.tabstop = 2
+    vim.opt.shiftwidth = 2
+  end,
 })
 
 vim.keymap.set('n', '<leader>c', function()
