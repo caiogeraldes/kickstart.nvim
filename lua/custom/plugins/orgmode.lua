@@ -29,14 +29,6 @@ return {
         },
       }
 
-      require('nvim-treesitter.configs').setup {
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = { 'org' },
-        },
-        ensure_installed = { 'org' }, -- Or run :TSUpdate org
-      }
-
       vim.cmd [[setlocal nofoldenable]] -- No folds initially
     end,
   },
