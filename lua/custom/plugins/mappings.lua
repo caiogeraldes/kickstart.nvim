@@ -3,6 +3,65 @@ return {
   'folke/which-key.nvim',
   event = 'VeryLazy', -- Sets the loading event to 'VeryLazy'
   config = function() -- This is the function that runs, AFTER loading
+    local r_mappings = function()
+      require('which-key').register {
+        ['<leader>r'] = { name = ' [R]lang', _ = 'which_key_ignore' },
+        ['<leader>rc'] = { name = '󰧭 [C]hunk', _ = 'which_key_ignore' },
+        ['<leader>rf'] = { name = ' [F]ile', _ = 'which_key_ignore' },
+        ['<leader>rF'] = { name = '󰊕 [F]unction', _ = 'which_key_ignore' },
+        ['<leader>rP'] = { name = ' [P]aragraph', _ = 'which_key_ignore' },
+        ['<leader>rb'] = { name = '󰧭 [B]lock', _ = 'which_key_ignore' },
+        ['<leader>rk'] = { name = '󰯊 [K]nit', _ = 'which_key_ignore' },
+        ['<leader>rh'] = { name = '󰋖 [H]elp', _ = 'which_key_ignore' },
+      }
+
+      -- Open and close R
+      vim.keymap.set('n', '<leader>rr', '<cmd>call StartR("R")<cr>', { desc = ' [R]un [R]' })
+      vim.keymap.set('n', '<leader>rq', '<cmd>call StartR("R")<cr>', { desc = ' [Q]uit R' })
+
+      -- Basic functionality
+      -- Lines
+      vim.keymap.set('n', '<leader>rl', '<cmd>call SendLineToR("stay")<cr>', { desc = 'Send current [L]ine' })
+      vim.keymap.set('n', '<C-CR>', '<cmd>call SendLineToR("down")<cr>', { desc = 'Send current line' })
+      vim.keymap.set('n', '<leader>ra', '<cmd>:call SendAboveLinesToR()<cr>', { desc = 'RSendAboveLines' })
+      -- Blocks
+      vim.keymap.set('n', '<leader>rbb', '<cmd>:call SendMBlockToR("silent", "stay")<cr>', { desc = 'RSendMBlock' })
+      vim.keymap.set('n', '<leader>rbe', '<cmd>:call SendMBlockToR("echo", "stay")<cr>', { desc = 'RESendMBlock' })
+      vim.keymap.set('n', '<leader>rbd', '<cmd>:call SendMBlockToR("silent", "down")<cr>', { desc = 'RDSendMBlock' })
+      vim.keymap.set('n', '<leader>rba', '<cmd>:call SendMBlockToR("echo", "down")<cr>', { desc = 'REDSendMBlock' })
+      -- Paragraphs
+      vim.keymap.set('n', '<leader>rPp', '<cmd>:call SendParagraphToR("silent", "stay")<cr>', { desc = 'RSendParagraph' })
+      vim.keymap.set('n', '<leader>rPe', '<cmd>:call SendParagraphToR("echo", "stay")<cr>', { desc = 'RESendParagraph' })
+      vim.keymap.set('n', '<leader>rPd', '<cmd>:call SendParagraphToR("silent", "down")<cr>', { desc = 'RDSendParagraph' })
+      vim.keymap.set('n', '<leader>rPa', '<cmd>:call SendParagraphToR("echo", "down")<cr>', { desc = 'REDSendParagraph' })
+      -- Files
+      vim.keymap.set('n', '<leader>rfa', '<cmd>call SendFileToR("silent")<cr>', { desc = 'Silently send file' })
+      vim.keymap.set('n', '<leader>rfe', '<cmd>call SendFileToR("echo")<cr>', { desc = 'Send file and [E]cho' })
+      -- Functions
+      vim.keymap.set('n', '<leader>rFf', '<cmd>:call SendFunctionToR("silent", "stay")<cr>', { desc = 'RSendFunction' })
+      vim.keymap.set('n', '<leader>rFe', '<cmd>:call SendFunctionToR("echo", "stay")<cr>', { desc = 'RESendFunction' })
+      vim.keymap.set('n', '<leader>rFd', '<cmd>:call SendFunctionToR("silent", "down")<cr>', { desc = 'RDSendFunction' })
+      vim.keymap.set('n', '<leader>rFa', '<cmd>:call SendFunctionToR("echo", "down")<cr>', { desc = 'REDSendFunction' })
+
+      -- Fast Functions
+      vim.keymap.set('n', '<leader>rp', '<cmd>call RAction("plot")<cr>', { desc = '󰻉 [P]lot' })
+      vim.keymap.set('n', '<leader>rd', '<cmd>call RAction("str")<cr>', { desc = ' [D]etailed structure' })
+      vim.keymap.set('n', '<leader>rs', '<cmd>call RAction("summary")<cr>', { desc = ' [S]ummary' })
+      vim.keymap.set('n', '<leader>ro', '<cmd>call RObjBrowser()<cr>', { desc = ' [O]bject Browser' })
+
+      -- Help
+      vim.keymap.set('n', '<leader>rha', '<cmd>call RAction("args")<cr>', { desc = 'Show [A]rguments' })
+      vim.keymap.set('n', '<leader>rhh', '<cmd>call RAction("help")<cr>', { desc = 'Show [H]elp' })
+      vim.keymap.set('n', '<leader>rhe', '<cmd>call RAction("example")<cr>', { desc = 'Show [E]xample' })
+
+      -- Rmd
+      vim.keymap.set('n', '<leader>rkp', '<cmd>call RMakeRmd("pdf_document")<cr>', { desc = '[P]DF' })
+      vim.keymap.set('n', '<leader>rkh', '<cmd>call RMakeRmd("html_document")<cr>', { desc = '[H]tml' })
+      vim.keymap.set('n', '<leader>rcc', '<cmd>call b:SendChunkToR("echo", "stay")<cr>', { desc = 'Send chunk and stay' })
+      vim.keymap.set('n', '<leader>rca', '<cmd>call b:SendChunkToR("echo", "down")<cr>', { desc = 'Send chunk and jump to next' })
+      vim.keymap.set('n', '<leader>rch', '<cmd>call SendFHChunkToR()<cr>', { desc = 'Send this and previous chunks' })
+    end
+
     local ft = vim.api.nvim_buf_get_option(0, 'filetype')
     require('which-key').setup()
 
@@ -74,16 +133,9 @@ return {
       vim.keymap.set('n', '<leader>TT', '<cmd>VimtexTocToggle<cr>', { desc = '󰠶 [T]OC Toggle' })
       vim.keymap.set('n', '<leader>TC', '<cmd>VimtexClean<cr>', { desc = '󰃢 [C]lean' })
     elseif ft == 'r' then
-      require('which-key').register {
-        ['<leader>r'] = { name = ' [R]lang', _ = 'which_key_ignore' },
-      }
-
-      -- TODO: Criar atalhos para o nvim-r
-      vim.keymap.set('n', '<leader>rl', '<cmd>call SendLineToR("stay")<cr>', { desc = 'Send current line' })
-      vim.keymap.set('n', '<leader>rsj', '<cmd>call SendLineToR("down")<cr>', { desc = 'Send line and jump' })
-      vim.keymap.set('n', '<leader>rsm', '<cmd>set opfunc=SendMotionToR")<cr>g@', { desc = 'Send motion' })
-      vim.keymap.set('n', '<leader>rkp', '<cmd>call RMakeRmd("pdf_document")<cr>')
-      vim.keymap.set('n', '<leader>rkh', '<cmd>call RMakeRmd("html_document")<cr>')
+      r_mappings()
+    elseif ft == 'rmd' then
+      r_mappings()
     elseif ft == 'rust' then
       require('which-key').register {
         ['<leader>r'] = { name = ' [R]ust', _ = 'which_key_ignore' },

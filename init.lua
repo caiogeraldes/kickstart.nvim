@@ -276,7 +276,9 @@ require('lazy').setup {
             },
           },
         },
-
+        markdownlint = {
+          filetypes = { 'markdown', 'rmd' },
+        },
         lua_ls = {
           -- cmd = {...},
           -- filetypes { ...},
@@ -400,6 +402,27 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     vim.cmd 'set spell spelllang=pt,en,grc,de'
     vim.opt.tabstop = 2
     vim.opt.shiftwidth = 2
+    vim.opt.textwidth = 80
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = { '*.Rmd' },
+  callback = function()
+    vim.cmd 'set spell spelllang=pt,en,grc,de'
+    vim.opt.tabstop = 2
+    vim.opt.shiftwidth = 2
+    vim.opt.textwidth = 80
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = { '*.md' },
+  callback = function()
+    vim.cmd 'set spell spelllang=pt,en,grc,de'
+    vim.opt.tabstop = 2
+    vim.opt.shiftwidth = 2
+    vim.opt.textwidth = 80
   end,
 })
 
