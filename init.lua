@@ -267,6 +267,7 @@ require('lazy').setup {
                   'Package biblatex Warning: File',
                   "Package biblatex Warning: Language 'hittite'",
                   'Wrong length of dash may have been used.',
+                  "Package fontspec Warning: OpenType feature 'Numbers=Lowercase'",
                 },
               },
               forwardSearch = {
