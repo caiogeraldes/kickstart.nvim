@@ -265,6 +265,7 @@ require('lazy').setup {
                   'Overfull',
                   "Language 'latin' not supported",
                   'Package biblatex Warning: File',
+                  "Package biblatex Warning: Language 'hittite'",
                   'Wrong length of dash may have been used.',
                 },
               },
