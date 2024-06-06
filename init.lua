@@ -259,7 +259,7 @@ require('lazy').setup {
         texlab = {
           settings = {
             texlab = {
-              build = { onSave = true, executable = 'lualatex', forwardSearchAfter = true },
+              build = { onSave = true, executable = 'lualatex', forwardSearchAfter = false },
               diagnostics = {
                 ignoredPatterns = {
                   'Overfull',
@@ -270,7 +270,7 @@ require('lazy').setup {
               },
               forwardSearch = {
                 executable = 'zathura',
-                args = { '--synctex-forward', '%l:1:%f', '%p' },
+                -- args = { '--synctex-forward', '%l:1:%f', '%p' },
               },
               chktex = { onOpenAndSave = true },
             },

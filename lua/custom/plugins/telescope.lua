@@ -23,7 +23,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     --  If you already have a Nerd Font, or terminal set up with fallback fonts
     --  you can enable this
     { 'nvim-tree/nvim-web-devicons' },
-    { 'cosmicboots/unicode_picker.nvim', dependencies = {
+    { 'caiogeraldes/unicode_picker.nvim', dependencies = {
       'uga-rosa/utf8.nvim',
     } },
   },
