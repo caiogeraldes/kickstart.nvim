@@ -23,9 +23,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     --  If you already have a Nerd Font, or terminal set up with fallback fonts
     --  you can enable this
     { 'nvim-tree/nvim-web-devicons' },
-    { 'caiogeraldes/unicode_picker.nvim', dependencies = {
-      'uga-rosa/utf8.nvim',
-    } },
+    { 'nvim-telescope/telescope-symbols.nvim' },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -73,6 +71,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
+    -- vim.keymap.set('n', '<leader>ua>', builtin.symbols { source = { 'unicode' } })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
     vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
     vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
