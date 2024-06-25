@@ -76,6 +76,7 @@ return {
       ['<leader>gh'] = { desc = '󰘤 [H]unk' },
       ['<leader>gb'] = { desc = ' [B]uffer' },
       ['<leader>gt'] = { desc = ' [T]oggle' },
+      ['<leader>u'] = { desc = '󰻐 [U]nicode' },
     }
 
     -- Kill search highlights
@@ -107,6 +108,9 @@ return {
     vim.keymap.set('n', '<leader>sgp', '<cmd>setlocal spell spelllang=pt,grc<cr>', { desc = 'Portuguese + Greek' })
     vim.keymap.set('n', '<leader>sge', '<cmd>setlocal spell spelllang=en,grc<cr>', { desc = 'English + Greek' })
     vim.keymap.set('n', '<leader>sq', '<cmd>setlocal nospell<cr>', { desc = 'Disable' })
+
+    -- Symbols
+    vim.keymap.set('n', '<leader>ua', '<cmd>Telescope symbols<cr>', { desc = '󰻐 [U]nicode Symbols [A]dd' })
 
     -- Neo-tree
     vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>', { desc = 'Neotree toggle' })
