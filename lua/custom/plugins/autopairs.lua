@@ -8,7 +8,7 @@ return {
     require('nvim-autopairs').setup {}
 
     -- Adding rules for LaTeX
-    require('nvim-autopairs').getrules('`')[1].not_filetypes = { 'tex' }
+    require('nvim-autopairs').get_rules('`')[1].not_filetypes = { 'tex' }
     local Rule = require 'nvim-autopairs.rule'
     local npairs = require 'nvim-autopairs'
     npairs.add_rule(Rule('`', "'", 'tex'))
