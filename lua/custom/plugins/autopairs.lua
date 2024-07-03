@@ -12,6 +12,7 @@ return {
     local Rule = require 'nvim-autopairs.rule'
     local npairs = require 'nvim-autopairs'
     npairs.add_rule(Rule('`', "'", 'tex'))
+    npairs.add_rule(Rule('$', '$', 'tex'))
 
     -- If you want to automatically add `(` after selecting a function or method
     local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
