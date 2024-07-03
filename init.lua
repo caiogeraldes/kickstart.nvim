@@ -259,15 +259,19 @@ require('lazy').setup {
         texlab = {
           settings = {
             texlab = {
-              build = { onSave = true, executable = 'lualatex', forwardSearchAfter = false },
+              build = {
+                onSave = true,
+                executable = 'lualatex',
+                forwardSearchAfter = false,
+              },
               diagnostics = {
                 ignoredPatterns = {
-                  'Overfull',
                   "Language 'latin' not supported",
                   'Package biblatex Warning: File',
                   "Package biblatex Warning: Language 'hittite'",
                   'Wrong length of dash may have been used.',
                   "Package fontspec Warning: OpenType feature 'Numbers=Lowercase'",
+                  'You should not use punctuation in front of quotes.',
                 },
               },
               forwardSearch = {

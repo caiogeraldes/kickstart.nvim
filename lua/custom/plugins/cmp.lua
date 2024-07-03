@@ -9,7 +9,6 @@ return {
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
-
     -- If you want to add a bunch of pre-configured snippets,
     --    you can use this plugin to help you. It even has snippets
     --    for various frameworks/libraries/etc. but you will have to
@@ -20,6 +19,8 @@ return {
     'jc-doyle/cmp-pandoc-references',
     'kdheepak/cmp-latex-symbols',
     'chrisgrieser/cmp-nerdfont',
+    'octaltree/cmp-look',
+    'f3fora/cmp-spell',
   },
   config = function()
     -- See `:help cmp`
@@ -81,12 +82,24 @@ return {
         { name = 'friendly-snippets' },
         { name = 'nerdfont' },
         { name = 'pandoc_references' },
-        { name = 'latex_symbols' },
+        { name = 'latex_symbols', filetype = 'tex' },
         { name = 'emoji' },
         { name = 'calc' },
         { name = 'path' },
         { name = 'buffer' },
         { name = 'orgmode', filetype = 'org' },
+        { name = 'look' },
+        {
+          name = 'spell',
+          filetype = 'tex',
+          option = {
+            keep_all_entries = false,
+            enable_in_context = function()
+              return true
+            end,
+            preselect_correct_word = true,
+          },
+        },
       },
     }
   end,
