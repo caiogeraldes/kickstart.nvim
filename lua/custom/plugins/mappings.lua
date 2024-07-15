@@ -4,17 +4,7 @@ return {
   event = 'VeryLazy', -- Sets the loading event to 'VeryLazy'
   config = function() -- This is the function that runs, AFTER loading
     local r_mappings = function()
-      require('which-key').register {
-        ['<leader>r'] = { name = ' [R]lang', _ = 'which_key_ignore' },
-        ['<leader>rc'] = { name = '󰧭 [C]hunk', _ = 'which_key_ignore' },
-        ['<leader>rf'] = { name = ' [F]ile', _ = 'which_key_ignore' },
-        ['<leader>rF'] = { name = '󰊕 [F]unction', _ = 'which_key_ignore' },
-        ['<leader>rP'] = { name = ' [P]aragraph', _ = 'which_key_ignore' },
-        ['<leader>rb'] = { name = '󰧭 [B]lock', _ = 'which_key_ignore' },
-        ['<leader>rk'] = { name = '󰯊 [K]nit', _ = 'which_key_ignore' },
-        ['<leader>rh'] = { name = '󰋖 [H]elp', _ = 'which_key_ignore' },
-      }
-
+      require('which-key').add { { '<leader>r', desc = '󰟔 [R]' } }
       -- Open and close R
       vim.keymap.set('n', '<leader>rr', '<cmd>call StartR("R")<cr>', { desc = ' [R]un [R]' })
       vim.keymap.set('n', '<leader>rq', '<cmd>call StartR("R")<cr>', { desc = ' [Q]uit R' })
@@ -63,20 +53,22 @@ return {
       vim.keymap.set('n', '<leader>rch', '<cmd>call SendFHChunkToR()<cr>', { desc = 'Send this and previous chunks' })
     end
 
-    local ft = vim.api.nvim_buf_get_option(0, 'filetype')
+    local ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
     require('which-key').setup()
 
     -- Document existing key chains
-    require('which-key').register {
-      ['<leader>l'] = { name = '[L]sp', _ = 'which_key_ignore' },
-      ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
-      ['<leader>s'] = { name = ' [S]pelling' },
-      ['<leader>O'] = { desc = ' [O]rgmode' },
-      ['<leader>g'] = { desc = ' [G]it' },
-      ['<leader>gh'] = { desc = '󰘤 [H]unk' },
-      ['<leader>gb'] = { desc = ' [B]uffer' },
-      ['<leader>gt'] = { desc = ' [T]oggle' },
-      ['<leader>u'] = { desc = '󰻐 [U]nicode' },
+    require('which-key').add {
+      { '<leader>O', desc = ' [O]rgmode' },
+      { '<leader>f', group = '[F]ind' },
+      { '<leader>f_', hidden = true },
+      { '<leader>g', desc = ' [G]it' },
+      { '<leader>gb', desc = ' [B]uffer' },
+      { '<leader>gh', desc = '󰘤 [H]unk' },
+      { '<leader>gt', desc = ' [T]oggle' },
+      { '<leader>l', group = '[L]sp' },
+      { '<leader>l_', hidden = true },
+      { '<leader>s', group = ' [S]pelling' },
+      { '<leader>u', desc = '󰻐 [U]nicode' },
     }
 
     -- Kill search highlights
