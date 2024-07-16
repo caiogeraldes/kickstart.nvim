@@ -23,7 +23,6 @@ return {
     'f3fora/cmp-spell',
   },
   config = function()
-    -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
     luasnip.config.setup {}
@@ -40,21 +39,27 @@ return {
       -- chosen, you will need to read `:help ins-completion`
       --
       -- No, but seriously. Please read `:help ins-completion`, it is really good!
+      ---@diagnostic disable-next-line: undefined-field
       mapping = cmp.mapping.preset.insert {
         -- Select the [n]ext item
+        ---@diagnostic disable-next-line: undefined-field
         ['<C-n>'] = cmp.mapping.select_next_item(),
         -- Select the [p]revious item
+        ---@diagnostic disable-next-line: undefined-field
         ['<C-p>'] = cmp.mapping.select_prev_item(),
 
         -- Accept ([y]es) the completion.
         --  This will auto-import if your LSP supports it.
         --  This will expand snippets if the LSP sent a snippet.
+        ---@diagnostic disable-next-line: undefined-field
         ['<C-y>'] = cmp.mapping.confirm { select = true },
+        ---@diagnostic disable-next-line: undefined-field
         ['<C-CR>'] = cmp.mapping.confirm { select = true },
 
         -- Manually trigger a completion from nvim-cmp.
         --  Generally you don't need this, because nvim-cmp will display
         --  completions whenever it has completion options available.
+        ---@diagnostic disable-next-line: undefined-field
         ['<C-Space>'] = cmp.mapping.complete {},
 
         -- Think of <c-l> as moving to the right of your snippet expansion.
@@ -65,11 +70,13 @@ return {
         --
         -- <c-l> will move you to the right of each of the expansion locations.
         -- <c-h> is similar, except moving you backwards.
+        ---@diagnostic disable-next-line: undefined-field
         ['<C-l>'] = cmp.mapping(function()
           if luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
           end
         end, { 'i', 's' }),
+        ---@diagnostic disable-next-line: undefined-field
         ['<C-h>'] = cmp.mapping(function()
           if luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)
