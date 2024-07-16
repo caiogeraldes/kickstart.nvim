@@ -123,7 +123,7 @@ return {
 
     if ft == 'tex' then
       require('which-key').add {
-        { '<leader>T', name = ' [T]ex', _ = 'which_key_ignore' },
+        { '<leader>T', desc = ' [T]ex' },
       }
 
       vim.keymap.set('n', '<leader>Tv', '<cmd>VimtexView<cr>', { desc = '  [V]iew PDF' })
@@ -135,7 +135,7 @@ return {
       r_mappings()
     elseif ft == 'rust' then
       require('which-key').add {
-        { '<leader>r', name = ' [R]ust', _ = 'which_key_ignore' },
+        { '<leader>r', desc = ' [R]ust' },
       }
       vim.keymap.set('n', '<leader>rb', '<cmd>:!cargo build<cr>', { desc = 'Build' })
       vim.keymap.set('n', '<leader>rc', '<cmd>:!cargo check<cr>', { desc = 'Check' })
