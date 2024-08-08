@@ -2,7 +2,7 @@
 -- See `:help mapleader`
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.opt.conceallevel = 2
+-- vim.opt.conceallevel = 2
 
 vim.g.gruvbox_material_transparent_background = 1
 vim.g.gruvbox_material_better_performance = 1
