@@ -2,7 +2,7 @@
 -- See `:help mapleader`
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
--- vim.opt.conceallevel = 2
+vim.opt.conceallevel = 0
 
 vim.g.gruvbox_material_transparent_background = 1
 vim.g.gruvbox_material_better_performance = 1
@@ -378,11 +378,12 @@ require('lazy').setup {
 
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'c', 'cpp', 'go', 'help', 'lua', 'python', 'rust', 'typescript', 'bash', 'julia', 'org' },
+        ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'bash', 'julia', 'org', 'markdown', 'markdown_inline' },
         -- Autoinstall languages that are not installed
         auto_install = true,
         highlight = {
           enable = true,
+          disable = { 'csv' },
           additional_vim_regex_highlighting = { 'org' },
         },
         indent = { enable = true },

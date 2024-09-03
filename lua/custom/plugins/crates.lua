@@ -3,7 +3,7 @@ return {
   tag = 'stable',
   config = function()
     require('crates').setup {
-      cmp = { enabled = true },
+      -- cmp = { enabled = true },
     }
   end,
 }
