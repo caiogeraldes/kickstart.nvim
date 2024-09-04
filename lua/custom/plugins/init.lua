@@ -24,6 +24,9 @@ return {
   'HiPhish/rainbow-delimiters.nvim',
   'nvim-neotest/nvim-nio',
   'chrisbra/unicode.vim',
+  'IndianBoy42/tree-sitter-just',
+  'NoahTheDuke/vim-just',
+
   -- You can also add new plugins here as well:
   -- Add plugins, the lazy syntax
   -- "andweeb/presence.nvim",
