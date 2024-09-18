@@ -270,6 +270,8 @@ require('lazy').setup {
                   "Language 'latin' not supported",
                   'Package biblatex Warning: File',
                   "Package biblatex Warning: Language 'hittite'",
+                  "Package biblatex Warning: Language 'ipa'",
+                  "Package biblatex Warning: Language 'ancientgreek'",
                   'Wrong length of dash may have been used.',
                   "Package fontspec Warning: OpenType feature 'Numbers=Lowercase'",
                   'You should not use punctuation in front of quotes.',
