@@ -20,7 +20,7 @@ return {
     workspaces = {
       {
         name = 'Caderno',
-        path = '~/docs/Caderno',
+        path = '~/caderno',
         overrides = {
           notes_subdir = 'notas',
         },
